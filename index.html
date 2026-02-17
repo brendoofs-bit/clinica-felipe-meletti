@@ -89,13 +89,8 @@
     <script type="text/babel">
       const { useState, useEffect, useRef, useCallback } = React;
       
-      // --- ICONS (SVG Replacements for Lucide in standalone) ---
-      // Simple wrapper to render Lucide icons via lucide global object or SVGs
-      // For simplicity in this standalone file, I'll assume lucide.createIcons() runs, 
-      // but React components need SVGs. I will define a generic Icon component.
-      
+      // --- ICONS ---
       const Icon = ({ name, size = 24, className, ...props }) => {
-        // Mapping common icons used
         const icons = {
            Menu: <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="6" x2="20" y2="6"/><line x1="4" y1="18" x2="20" y2="18"/></svg>,
            X: <svg xmlns="http://www.w3.org/2000/svg" width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className={className}><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>,
@@ -162,7 +157,8 @@
           description: 'A técnica mais avançada para renovação celular completa. Indicado para peles maduras ou com cicatrizes profundas, proporcionando um efeito de "pele nova" em apenas uma sessão.',
           benefits: ['Redução drástica de rugas profundas', 'Eliminação de manchas senis', 'Retração de flacidez severa', 'Resultados que duram anos'],
           image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771349904/7B2FF4CC-6861-47EC-85AB-EED3B5650907.png.6ac300486755d68ddcf766bc47055114_kpdjxp.png",
-          tags: ['MAIS PROCURADO', 'REJUVENESCIMENTO']
+          tags: ['MAIS PROCURADO', 'REJUVENESCIMENTO'],
+          link: 'https://www.clinicafelipemeletti.com.br/dt_procedures/peeling-de-fenol-like'
         },
         {
           id: 'gluteo',
@@ -171,16 +167,18 @@
           description: 'Protocolo exclusivo Dr. Felipe Meletti para volumização e correção de desníveis nos glúteos sem cirurgia. Utilizamos preenchedores biocompatíveis de alta durabilidade.',
           benefits: ['Aumento de volume imediato', 'Correção da depressão trocantérica', 'Melhora da qualidade da pele (celulite)', 'Procedimento minimamente invasivo'],
           image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771349999/WhatsApp-Image-2022-11-10-at-21.04.20-1201x800_c0kl4w.jpg",
-          tags: ['CORPO', 'RESULTADO IMEDIATO']
+          tags: ['CORPO', 'RESULTADO IMEDIATO'],
+          link: 'https://www.clinicafelipemeletti.com.br/dt_procedures/remodelacao-glutea'
         },
         {
           id: 'ultraformer',
-          title: 'Ultraformer III',
+          title: 'Ultraformer', // Removed III
           subtitle: 'Lifting Sem Cortes',
           description: 'A tecnologia de ultrassom micro e macrofocado número 1 do mundo. Atua na ancoragem muscular e estímulo de colágeno, promovendo efeito lifting imediato e progressivo.',
           benefits: ['Efeito lifting facial imediato', 'Redução da papada e gordura localizada', 'Sem tempo de recuperação (downtime)', 'Pode ser feito em qualquer época do ano'],
           image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771350194/ultraformer-antes-depois_ip9xbv.jpg",
-          tags: ['TECNOLOGIA', 'LIFTING']
+          tags: ['TECNOLOGIA', 'LIFTING'],
+          link: 'https://www.clinicafelipemeletti.com.br/dt_procedures/ultraformer'
         }
       ];
 
@@ -302,20 +300,38 @@
       const Header = () => {
         const [scrolled, setScrolled] = useState(false);
         const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-        const navLinks = [ { name: 'Início', href: '#home' }, { name: 'Peeling Fenol Like', href: '#fenol' }, { name: 'Remodelação Glútea', href: '#gluteo' }, { name: 'Tratamentos', href: '#treatments' }];
+        
+        // Links updated
+        const navLinks = [ 
+          { name: 'Início', href: 'https://www.clinicafelipemeletti.com.br' }, 
+          { name: 'Peeling Fenol Like', href: 'https://www.clinicafelipemeletti.com.br/dt_procedures/peeling-de-fenol-like' }, 
+          { name: 'Remodelação Glútea', href: 'https://www.clinicafelipemeletti.com.br/dt_procedures/remodelacao-glutea' }, 
+          { name: 'Tratamentos', href: 'https://www.clinicafelipemeletti.com.br/tratamentos' }
+        ];
 
         useEffect(() => {
           const handleScroll = () => setScrolled(window.scrollY > 50);
           window.addEventListener('scroll', handleScroll);
           return () => window.removeEventListener('scroll', handleScroll);
         }, []);
+        
+        // Lock body scroll when mobile menu is open
+        useEffect(() => {
+          if (mobileMenuOpen) {
+            document.body.style.overflow = 'hidden';
+          } else {
+            document.body.style.overflow = 'unset';
+          }
+        }, [mobileMenuOpen]);
 
+        // Blurred frosted mirror effect on scroll: bg-white/20 backdrop-blur-md border-b border-white/10
         return (
-          <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${scrolled ? 'bg-white/90 backdrop-blur-md shadow-sm py-4' : 'bg-transparent py-6'}`}>
+          <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-500 ${scrolled ? 'bg-white/20 backdrop-blur-md border-b border-white/10 shadow-sm py-4' : 'bg-transparent py-6'}`}>
             <div className="max-w-[1400px] mx-auto px-6 md:px-12 flex justify-between items-center">
               <div className="flex flex-col items-end">
-                 <span className={`text-[0.6rem] md:text-xs uppercase tracking-[0.3em] font-bold mb-[-4px] z-10 ${scrolled ? 'text-gold-600' : 'text-gold-400'}`}>Clínica</span>
-                 <h1 className={`font-serif text-2xl md:text-3xl tracking-wide font-bold transition-colors ${scrolled ? 'text-gold-600' : 'text-gold-500'}`}>DR. FELIPE MELETTI</h1>
+                 {/* Logo text smaller */}
+                 <span className={`text-[0.5rem] md:text-[0.6rem] uppercase tracking-[0.3em] font-bold mb-[-4px] z-10 ${scrolled ? 'text-gold-600' : 'text-gold-400'}`}>Clínica</span>
+                 <h1 className={`font-serif text-xl md:text-2xl tracking-wide font-bold transition-colors ${scrolled ? 'text-gold-600' : 'text-gold-500'}`}>DR. FELIPE MELETTI</h1>
               </div>
               <nav className="hidden md:flex items-center gap-8">
                 {navLinks.map((link) => (
@@ -324,15 +340,17 @@
                     <span className="absolute -bottom-2 left-0 w-0 h-0.5 bg-gold-500 transition-all group-hover:w-full"></span>
                   </a>
                 ))}
-                <a href="#contact" className={`px-6 py-2 border rounded-full text-xs uppercase tracking-widest hover:bg-gold-500 hover:border-gold-500 hover:text-white transition-all duration-300 ${scrolled ? 'border-gold-600 text-gold-600' : 'border-white text-white'}`}>Agendar</a>
+                {/* CTA Agendar linked to WhatsApp */}
+                <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank" className={`px-6 py-2 border rounded-full text-xs uppercase tracking-widest hover:bg-gold-500 hover:border-gold-500 hover:text-white transition-all duration-300 ${scrolled ? 'border-gold-600 text-gold-600' : 'border-white text-white'}`}>Agendar</a>
               </nav>
               <button className="md:hidden text-gold-500" onClick={() => setMobileMenuOpen(!mobileMenuOpen)}>
                 {mobileMenuOpen ? <Icon name="X" size={28} /> : <Icon name="Menu" size={28} />}
               </button>
             </div>
-            <div className={`fixed inset-0 bg-dark-900/95 backdrop-blur-xl z-50 transform transition-transform duration-500 flex items-center justify-center ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
+            {/* Mobile Menu - Fixed, overflow-y-auto to allow scrolling menu content if needed, z-50 */}
+            <div className={`fixed inset-0 bg-dark-900/95 backdrop-blur-xl z-50 transform transition-transform duration-500 flex items-center justify-center overflow-y-auto ${mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'}`}>
               <button className="absolute top-8 right-8 text-white" onClick={() => setMobileMenuOpen(false)}><Icon name="X" size={32} /></button>
-              <nav className="flex flex-col items-center gap-8">
+              <nav className="flex flex-col items-center gap-8 p-8">
                 {navLinks.map((link) => (<a key={link.name} href={link.href} onClick={() => setMobileMenuOpen(false)} className="text-2xl font-serif text-white hover:text-gold-500 transition-colors">{link.name}</a>))}
               </nav>
             </div>
@@ -352,8 +370,8 @@
               <h1 className="font-serif text-4xl md:text-6xl lg:text-7xl text-white leading-tight mb-8 animate-slide-up opacity-0" style={{ animationDelay: '1.4s' }}>A Arte de <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-gold-300 to-gold-600">Rejuvenescer</span> com Naturalidade</h1>
               <p className="text-lg text-slate-300 leading-relaxed mb-10 max-w-xl animate-slide-up opacity-0" style={{ animationDelay: '1.6s' }}>Protocolos exclusivos desenvolvidos pelo Dr. Felipe Meletti para realçar sua beleza individual com segurança e sofisticação.</p>
               <div className="flex flex-col sm:flex-row gap-4 animate-slide-up opacity-0" style={{ animationDelay: '1.8s' }}>
-                <Button variant="primary" iconName="ArrowRight">Agendar Avaliação</Button>
-                <Button variant="outline">Conheça a Clínica</Button>
+                <a href={`https://wa.me/${WHATSAPP_NUMBER}`} target="_blank"><Button variant="primary" iconName="ArrowRight">Agendar Avaliação</Button></a>
+                <a href="https://www.clinicafelipemeletti.com.br/a-clinica"><Button variant="outline">Conheça a Clínica</Button></a>
               </div>
             </div>
           </div>
@@ -368,7 +386,8 @@
         const loopImages = [IMAGES.clinicInterior1, IMAGES.procedure1, IMAGES.clinicInterior2, IMAGES.procedure2, IMAGES.procedure3, IMAGES.clinicInterior1, IMAGES.procedure1, IMAGES.clinicInterior2];
         return (
           <section className="py-12 bg-white overflow-hidden relative border-b border-gold-100/50">
-            <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-white via-transparent to-white w-full h-full" />
+            {/* Reduced opacity for gradient overlay: from-white/85 instead of solid white */}
+            <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-white/85 via-transparent to-white/85 w-full h-full" />
             <div className="flex animate-[scroll_40s_linear_infinite] gap-8 w-max px-8">
               {loopImages.map((img, i) => <div key={i} className="w-[300px] h-[200px] md:h-[250px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg"><img src={img} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" /></div>)}
               {loopImages.map((img, i) => <div key={`d-${i}`} className="w-[300px] h-[200px] md:h-[250px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg"><img src={img} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" /></div>)}
@@ -395,7 +414,9 @@
                 </div>
               ))}
             </div>
-            <div className="mt-16 text-center"><Button variant="outline">Ver Todos os Tratamentos</Button></div>
+            <div className="mt-16 text-center">
+              <a href="https://www.clinicafelipemeletti.com.br/tratamentos"><Button variant="outline">Ver Todos os Tratamentos</Button></a>
+            </div>
           </div>
         </section>
       );
@@ -428,7 +449,9 @@
                     <ul className="space-y-3 mb-8 flex-1">
                       {service.benefits.map((benefit, i) => (<li key={i} className="flex items-start gap-3 text-sm text-slate-300"><Icon name="Check" size={16} className="text-gold-500 mt-0.5 shrink-0" /><span>{benefit}</span></li>))}
                     </ul>
-                    <button className="w-full py-4 bg-slate-800 rounded-xl border border-slate-700 group-hover:bg-gold-600/10 group-hover:border-gold-500/30 text-white group-hover:text-gold-400 font-medium transition-all flex items-center justify-center gap-2">Saiba Mais <Icon name="ArrowRight" size={16} /></button>
+                    <a href={service.link} className="block w-full">
+                      <button className="w-full py-4 bg-slate-800 rounded-xl border border-slate-700 group-hover:bg-gold-600/10 group-hover:border-gold-500/30 text-white group-hover:text-gold-400 font-medium transition-all flex items-center justify-center gap-2">Saiba Mais <Icon name="ArrowRight" size={16} /></button>
+                    </a>
                   </div>
                 </div>
               ))}
