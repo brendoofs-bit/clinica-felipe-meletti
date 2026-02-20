@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CASE_STUDIES } from '../../constants';
-import { ArrowRight, X } from 'lucide-react';
+import { ArrowRight, X, Hand } from 'lucide-react';
 import { CaseStudy } from '../../types';
 
 const CaseStudies: React.FC = () => {
@@ -17,12 +17,19 @@ const CaseStudies: React.FC = () => {
            <div className="hidden md:block w-1/3 h-[1px] bg-gold-200 mb-4"></div>
         </div>
 
+        {/* Mobile Swipe Indicator */}
+        <div className="md:hidden flex items-center gap-2 text-gold-600 mb-4 animate-pulse">
+           <Hand size={16} className="rotate-90" />
+           <span className="text-xs font-bold uppercase tracking-widest">Arraste para ver mais</span>
+        </div>
+
         {/* Horizontal Scroll Area */}
-        <div className="flex gap-8 overflow-x-auto pb-8 no-scrollbar snap-x snap-mandatory">
+        {/* Adjusted padding and widths for peek-a-boo effect on mobile */}
+        <div className="flex gap-4 md:gap-8 overflow-x-auto pb-8 no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0">
            {CASE_STUDIES.map((study) => (
              <div 
                key={study.id}
-               className="min-w-[300px] md:min-w-[350px] snap-center bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer group transform hover:-translate-y-2 transition-all duration-300"
+               className="min-w-[85vw] md:min-w-[350px] snap-center bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer group transform hover:-translate-y-2 transition-all duration-300"
                onClick={() => setSelectedCase(study)}
              >
                <div className="h-[250px] overflow-hidden relative">
@@ -41,6 +48,8 @@ const CaseStudies: React.FC = () => {
                </div>
              </div>
            ))}
+           {/* Spacer for better scrolling on mobile */}
+           <div className="min-w-[1px] md:hidden"></div>
         </div>
       </div>
 

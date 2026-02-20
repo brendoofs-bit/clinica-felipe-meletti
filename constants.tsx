@@ -6,6 +6,7 @@ export const WHATSAPP_NUMBER = "5554991928750";
 
 export const IMAGES = {
   hero: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771597483/Design_sem_nome_ijrghm.png", // Elegant clinic shot
+  heroMobile: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771599358/Design_sem_nome_1_ozodqj.png", // Mobile specific hero
   doctor: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771343022/Felipe_Meletti_01_kwalqq.jpg",
   clinicInterior1: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771348019/_EDS1817_blc45o.jpg",
   clinicInterior2: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771348019/IMG_5915_lnc6y1.jpg",

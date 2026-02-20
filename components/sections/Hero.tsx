@@ -8,10 +8,17 @@ const Hero: React.FC = () => {
     <section id="home" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-dark-900">
       {/* Background with Overlay */}
       <div className="absolute inset-0 z-0">
+        {/* Desktop Image */}
         <img 
           src={IMAGES.hero} 
           alt="Clínica Felipe Meletti" 
-          className="w-full h-full object-contain object-center"
+          className="hidden md:block w-full h-full object-contain object-center"
+        />
+        {/* Mobile Image */}
+        <img 
+          src={IMAGES.heroMobile} 
+          alt="Clínica Felipe Meletti" 
+          className="block md:hidden w-full h-full object-cover object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-dark-900/90 via-dark-900/60 to-transparent" />
       </div>
