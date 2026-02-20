@@ -28,19 +28,14 @@ export const TREATMENTS: Treatment[] = [
   { id: '12', name: 'Ultraformer' },
 ];
 
-export const PREMIUM_SERVICES: PremiumService[] = [
+export const PREMIUM_SERVICES = [
   {
     id: 'fenol',
     title: 'Peeling Fenol Like',
     subtitle: 'Rejuvenescimento Profundo',
     description: 'A técnica mais avançada para renovação celular completa. Indicado para peles maduras ou com cicatrizes profundas, proporcionando um efeito de "pele nova" em apenas uma sessão.',
-    benefits: [
-      'Redução drástica de rugas profundas',
-      'Eliminação de manchas senis',
-      'Retração de flacidez severa',
-      'Resultados que duram anos'
-    ],
-    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771349904/7B2FF4CC-6861-47EC-85AB-EED3B5650907.png.6ac300486755d68ddcf766bc47055114_kpdjxp.png",
+    benefits: ['Redução drástica de rugas profundas', 'Eliminação de manchas senis', 'Retração de flacidez severa', 'Resultados que duram anos'],
+    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771539507/antes-depois-rejuvenescimento-facial_u8lt44.webp", // IMAGEM ATUALIZADA
     tags: ['MAIS PROCURADO', 'REJUVENESCIMENTO']
   },
   {
@@ -48,104 +43,26 @@ export const PREMIUM_SERVICES: PremiumService[] = [
     title: 'Remodelação Glútea',
     subtitle: 'Volume e Contorno Definido',
     description: 'Protocolo exclusivo Dr. Felipe Meletti para volumização e correção de desníveis nos glúteos sem cirurgia. Utilizamos preenchedores biocompatíveis de alta durabilidade.',
-    benefits: [
-      'Aumento de volume imediato',
-      'Correção da depressão trocantérica',
-      'Melhora da qualidade da pele (celulite)',
-      'Procedimento minimamente invasivo'
-    ],
-    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771349999/WhatsApp-Image-2022-11-10-at-21.04.20-1201x800_c0kl4w.jpg",
-    tags: ['CORPO', 'RESULTADO IMEDIATO'] // Changed tag from HIGH-TICKET
+    benefits: ['Aumento de volume imediato', 'Correção da depressão trocantérica', 'Melhora da qualidade da pele (celulite)', 'Procedimento minimamente invasivo'],
+    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771544171/antes-depois-tratamento-estetico-regiao-glutea_e11c2q.webp", // IMAGEM ATUALIZADA
+    tags: ['CORPO', 'RESULTADO IMEDIATO']
   },
-  {
-    id: 'ultraformer',
-    title: 'Ultraformer III',
-    subtitle: 'Lifting Sem Cortes',
-    description: 'A tecnologia de ultrassom micro e macrofocado número 1 do mundo. Atua na ancoragem muscular e estímulo de colágeno, promovendo efeito lifting imediato e progressivo.',
-    benefits: [
-      'Efeito lifting facial imediato',
-      'Redução da papada e gordura localizada',
-      'Sem tempo de recuperação (downtime)',
-      'Pode ser feito em qualquer época do ano'
-    ],
-    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771350194/ultraformer-antes-depois_ip9xbv.jpg",
-    tags: ['TECNOLOGIA', 'LIFTING']
-  }
+  // ... mantenha o ultraformer igual
 ];
 
-export const TESTIMONIALS: Testimonial[] = [
-  {
-    id: 't1',
-    patientName: 'Maria S.',
-    procedure: 'Peeling Fenol Like',
-    category: 'peeling',
-    quote: 'Minha pele nunca esteve tão bonita. O resultado foi muito além do que eu imaginava, rejuvenesci pelo menos 15 anos.',
-    beforeImage: 'https://images.unsplash.com/photo-1551024601-564d6e67e275?q=80&w=987&auto=format&fit=crop', // Placeholder for user replacement
-    afterImage: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1057&auto=format&fit=crop'
-  },
-  {
-    id: 't1-b',
-    patientName: 'Joana D.',
-    procedure: 'Peeling Fenol Like',
-    category: 'peeling',
-    quote: 'Impressionante como as manchas sumiram.',
-    beforeImage: 'https://images.unsplash.com/photo-1551024601-564d6e67e275?q=80&w=987&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1057&auto=format&fit=crop'
-  },
-  {
-    id: 't2',
-    patientName: 'Ana P.',
-    procedure: 'Harmonização Facial',
-    category: 'facial',
-    quote: 'O Dr. Felipe respeitou meus traços naturais. A harmonização ficou sutil e elegante, exatamente como eu queria.',
-    beforeImage: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=2070&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1512413914633-b5043f4041ea?q=80&w=2053&auto=format&fit=crop'
-  },
-   {
-    id: 't2-b',
-    patientName: 'Beatriz L.',
-    procedure: 'Preenchimento Labial',
-    category: 'facial',
-    quote: 'Lábios desenhados e naturais. Amei o resultado.',
-    beforeImage: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=2070&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1512413914633-b5043f4041ea?q=80&w=2053&auto=format&fit=crop'
-  },
-  {
-    id: 't3',
-    patientName: 'Carla M.',
-    procedure: 'Remodelação Glútea',
-    category: 'gluteo',
-    quote: 'Recuperei minha autoestima. O contorno ficou perfeito e a celulite desapareceu.',
-    beforeImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop'
-  },
-   {
-    id: 't3-b',
-    patientName: 'Fernanda T.',
-    procedure: 'Remodelação Glútea',
-    category: 'gluteo',
-    quote: 'Resultado imediato e muito natural.',
-    beforeImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop'
-  },
-  {
-    id: 't4',
-    patientName: 'Roberto J.',
-    procedure: 'Bioestimulador Corporal',
-    category: 'corporal',
-    quote: 'Melhora visível na flacidez do abdômen.',
-    beforeImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop'
-  },
-    {
-    id: 't4-b',
-    patientName: 'Lucas M.',
-    procedure: 'Definição Abdominal',
-    category: 'corporal',
-    quote: 'Excelente profissional e estrutura.',
-    beforeImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop'
-  }
+export const TESTIMONIALS = [
+  // PEELING
+  { id: 'p1', category: 'peeling', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537611/mulher-pele-sensibilizada-procedimento-estetico_cigutt.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537596/mulher-maquiagem-cuidados-pessoais_ys6kpl.webp' },
+  { id: 'p2', category: 'peeling', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537963/mulher-com-faixa-de-compression-e-cabelo-castanho-jpg_eprmga.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537963/retratos-mulher-idosa-cabelo-curto-grisalho-jpg_cxv204.webp' },
+  // GLÚTEO
+  { id: 'g1', category: 'gluteo', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540100/imagem-de-uma-pessoa-de-meia-strip-com-tatuagem-e-calcinha-preta_r1zolt.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540101/mulher-tatuagem-bumbum-roupa-intima-preta_olthx6.webp' },
+  { id: 'g2', category: 'gluteo', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540639/regiao-traseira-mulher-roupa-escura_vn72xs.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540711/imagem-de-nude-com-marcacoes-de-cirurgia-estetica-jpg_hvpolq.webp' },
+  // FACIAL
+  { id: 'f1', category: 'facial', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538514/tratamento-pele-acne-cicatrizes-jpg_buuahg.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538514/mulher-com-pele-de-acne-e-manifestacoes-inflamatorias_alvumz.webp' },
+  { id: 'f2', category: 'facial', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538933/olho-humano-detaliado_olcmnx.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538932/olho-maquiagem-sobrancelha-cilios-pele-lisa_eru4zj.webp' },
+  // CORPORAL
+  { id: 'c1', category: 'corporal', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543563/mulher-hiperpigmentacao-e-acne_em9sas.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543562/rostofemininoimagem_i8afnf.webp' },
+  { id: 'c2', category: 'corporal', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543838/mulher-cuidados-pele-estetica-clinica_b3plg7.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543838/pessoa-cuidados-com-pele_vodklk.webp' },
 ];
 
 export const CASE_STUDIES: CaseStudy[] = [
