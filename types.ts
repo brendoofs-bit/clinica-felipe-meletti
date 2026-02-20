@@ -43,5 +43,5 @@ export interface Testimonial {
 export interface ClinicStat {
   value: string;
   label: string;
-  icon?: React.ReactNode;
+  icon: React.ElementType;
 }

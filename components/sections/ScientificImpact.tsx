@@ -16,7 +16,9 @@ const ScientificImpact: React.FC = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {IMPACT_STATS.map((stat, idx) => (
             <div key={idx} className="bg-slate-800/50 p-8 rounded-2xl border border-slate-700 hover:border-gold-500/50 transition-all hover:-translate-y-2">
-              <div className="mb-4 text-teal-400">{stat.icon}</div>
+              <div className="mb-4 text-teal-400">
+                <stat.icon className="w-6 h-6 text-gold-500" />
+              </div>
               <div className="text-5xl font-serif text-white mb-2">{stat.value}</div>
               <div className="text-sm font-bold text-white mb-2">{stat.label}</div>
               <div className="text-xs text-slate-500 uppercase tracking-wide">Fonte: Journal of Aesthetic Medicine</div>

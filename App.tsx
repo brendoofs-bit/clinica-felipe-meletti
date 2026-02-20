@@ -36,11 +36,11 @@ function App() {
         <main>
           <Hero />
           <ImageLoop />
-          <TreatmentsGrid />
-          <PremiumServices />
           <BeforeAfter />
+          <PremiumServices />
           <DoctorProfile />
           <ScientificImpact />
+          <TreatmentsGrid />
           <CaseStudies />
           <ClinicStructure />
           <Locations />

@@ -1,46 +1,36 @@
 import React from 'react';
-import { IMAGES } from '../../constants';
+import { CAROUSEL_IMAGES } from '../../constants';
 
 const ImageLoop: React.FC = () => {
-  // Using array of images repeated to ensure smooth loop
-  const loopImages = [
-    IMAGES.clinicInterior1,
-    IMAGES.procedure1,
-    IMAGES.clinicInterior2,
-    IMAGES.procedure2,
-    IMAGES.procedure3,
-    IMAGES.clinicInterior1, 
-    IMAGES.procedure1,
-    IMAGES.clinicInterior2,
-  ];
-
   return (
     <section className="py-12 bg-white overflow-hidden relative border-b border-gold-100/50">
-      <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-white via-transparent to-white w-full h-full" />
+      {/* Reduced opacity overlay: 5% on sides */}
+      <div className="absolute inset-y-0 left-0 w-[5%] z-10 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+      <div className="absolute inset-y-0 right-0 w-[5%] z-10 bg-gradient-to-l from-white to-transparent pointer-events-none" />
       
       <div className="flex animate-[scroll_40s_linear_infinite] gap-8 w-max px-8">
-        {loopImages.map((img, index) => (
+        {CAROUSEL_IMAGES.map((img, index) => (
           <div 
-            key={index} 
-            className="w-[300px] h-[200px] md:h-[250px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-500"
+            key={`orig-${index}`} 
+            className="w-[300px] h-[200px] md:h-[250px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg"
           >
             <img 
               src={img} 
-              alt="Ambiente Clínica" 
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+              alt="Clínica Felipe Meletti" 
+              className="w-full h-full object-cover" 
             />
           </div>
         ))}
         {/* Duplicate for seamless loop */}
-         {loopImages.map((img, index) => (
+         {CAROUSEL_IMAGES.map((img, index) => (
           <div 
             key={`dup-${index}`} 
-            className="w-[300px] h-[200px] md:h-[250px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-500"
+            className="w-[300px] h-[200px] md:h-[250px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg"
           >
             <img 
               src={img} 
-              alt="Ambiente Clínica" 
-              className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" 
+              alt="Clínica Felipe Meletti" 
+              className="w-full h-full object-cover" 
             />
           </div>
         ))}

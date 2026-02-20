@@ -1,11 +1,11 @@
 import React from 'react';
-import { Treatment, PremiumService, CaseStudy, Testimonial } from './types';
+import { Treatment, PremiumService, CaseStudy, Testimonial, ClinicStat } from './types';
 import { Sparkles, Activity, Award, ShieldCheck } from 'lucide-react';
 
 export const WHATSAPP_NUMBER = "5554991928750";
 
 export const IMAGES = {
-  hero: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771348019/IMG_5908_x1qvze.jpg", // Elegant clinic shot
+  hero: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771597483/Design_sem_nome_ijrghm.png", // Elegant clinic shot
   doctor: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771343022/Felipe_Meletti_01_kwalqq.jpg",
   clinicInterior1: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771348019/_EDS1817_blc45o.jpg",
   clinicInterior2: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771348019/IMG_5915_lnc6y1.jpg",
@@ -14,6 +14,15 @@ export const IMAGES = {
   procedure3: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771348018/_EDS1762_nfantk.jpg",
   texture: "https://www.transparenttextures.com/patterns/cubes.png" // Subtle background texture
 };
+
+export const CAROUSEL_IMAGES = [
+  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536884/antes-depois-tratamento-estetico-felipe-meletti_gjmmn7.webp",
+  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536589/tratamento-estetico-regiao-glutea-clinica-felipe-meletti_fzqk7b.webp",
+  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536243/tratamento-de-gordura-regiao-glutea_u7mkjl.webp",
+  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771452221/tratamento-celulite-clinica-felipe-meletti_mhpoj6.webp",
+  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771535778/transformacao-fisica-clinica-ameletti_px87b1.webp",
+  "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536011/antes-depois-tratamento-estetico-gluteos_zsnjzu.webp"
+];
 
 export const TREATMENTS: Treatment[] = [
   { id: '1', name: 'Peeling de Fenol Like' },
@@ -42,7 +51,7 @@ export const PREMIUM_SERVICES: PremiumService[] = [
       'Retração de flacidez severa',
       'Resultados que duram anos'
     ],
-    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771349904/7B2FF4CC-6861-47EC-85AB-EED3B5650907.png.6ac300486755d68ddcf766bc47055114_kpdjxp.png",
+    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771539507/antes-depois-rejuvenescimento-facial_u8lt44.webp",
     tags: ['MAIS PROCURADO', 'REJUVENESCIMENTO']
   },
   {
@@ -56,12 +65,12 @@ export const PREMIUM_SERVICES: PremiumService[] = [
       'Melhora da qualidade da pele (celulite)',
       'Procedimento minimamente invasivo'
     ],
-    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771349999/WhatsApp-Image-2022-11-10-at-21.04.20-1201x800_c0kl4w.jpg",
+    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771544171/antes-depois-tratamento-estetico-regiao-glutea_e11c2q.webp",
     tags: ['CORPO', 'RESULTADO IMEDIATO'] // Changed tag from HIGH-TICKET
   },
   {
     id: 'ultraformer',
-    title: 'Ultraformer III',
+    title: 'Ultraformer', // Removed III to match request if needed, but keeping III in object for now unless specified
     subtitle: 'Lifting Sem Cortes',
     description: 'A tecnologia de ultrassom micro e macrofocado número 1 do mundo. Atua na ancoragem muscular e estímulo de colágeno, promovendo efeito lifting imediato e progressivo.',
     benefits: [
@@ -70,7 +79,7 @@ export const PREMIUM_SERVICES: PremiumService[] = [
       'Sem tempo de recuperação (downtime)',
       'Pode ser feito em qualquer época do ano'
     ],
-    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771350194/ultraformer-antes-depois_ip9xbv.jpg",
+    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771593663/tratamento-pele-do-pescoco-antes-e-depois_m49hze.webp",
     tags: ['TECNOLOGIA', 'LIFTING']
   }
 ];
@@ -82,8 +91,8 @@ export const TESTIMONIALS: Testimonial[] = [
     procedure: 'Peeling Fenol Like',
     category: 'peeling',
     quote: 'Minha pele nunca esteve tão bonita. O resultado foi muito além do que eu imaginava, rejuvenesci pelo menos 15 anos.',
-    beforeImage: 'https://images.unsplash.com/photo-1551024601-564d6e67e275?q=80&w=987&auto=format&fit=crop', // Placeholder for user replacement
-    afterImage: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1057&auto=format&fit=crop'
+    beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537611/mulher-pele-sensibilizada-procedimento-estetico_cigutt.webp',
+    afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537596/mulher-maquiagem-cuidados-pessoais_ys6kpl.webp'
   },
   {
     id: 't1-b',
@@ -91,8 +100,8 @@ export const TESTIMONIALS: Testimonial[] = [
     procedure: 'Peeling Fenol Like',
     category: 'peeling',
     quote: 'Impressionante como as manchas sumiram.',
-    beforeImage: 'https://images.unsplash.com/photo-1551024601-564d6e67e275?q=80&w=987&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1057&auto=format&fit=crop'
+    beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537963/mulher-com-faixa-de-compression-e-cabelo-castanho-jpg_eprmga.webp',
+    afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537963/retratos-mulher-idosa-cabelo-curto-grisalho-jpg_cxv204.webp'
   },
   {
     id: 't2',
@@ -100,8 +109,8 @@ export const TESTIMONIALS: Testimonial[] = [
     procedure: 'Harmonização Facial',
     category: 'facial',
     quote: 'O Dr. Felipe respeitou meus traços naturais. A harmonização ficou sutil e elegante, exatamente como eu queria.',
-    beforeImage: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=2070&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1512413914633-b5043f4041ea?q=80&w=2053&auto=format&fit=crop'
+    beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538514/tratamento-pele-acne-cicatrizes-jpg_buuahg.webp',
+    afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538514/mulher-com-pele-de-acne-e-manifestacoes-inflamatorias_alvumz.webp'
   },
    {
     id: 't2-b',
@@ -109,8 +118,8 @@ export const TESTIMONIALS: Testimonial[] = [
     procedure: 'Preenchimento Labial',
     category: 'facial',
     quote: 'Lábios desenhados e naturais. Amei o resultado.',
-    beforeImage: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=2070&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1512413914633-b5043f4041ea?q=80&w=2053&auto=format&fit=crop'
+    beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538933/olho-humano-detaliado_olcmnx.webp',
+    afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538932/olho-maquiagem-sobrancelha-cilios-pele-lisa_eru4zj.webp'
   },
   {
     id: 't3',
@@ -118,8 +127,8 @@ export const TESTIMONIALS: Testimonial[] = [
     procedure: 'Remodelação Glútea',
     category: 'gluteo',
     quote: 'Recuperei minha autoestima. O contorno ficou perfeito e a celulite desapareceu.',
-    beforeImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop'
+    beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540100/imagem-de-uma-pessoa-de-meia-strip-com-tatuagem-e-calcinha-preta_r1zolt.webp',
+    afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540101/mulher-tatuagem-bumbum-roupa-intima-preta_olthx6.webp'
   },
    {
     id: 't3-b',
@@ -127,8 +136,8 @@ export const TESTIMONIALS: Testimonial[] = [
     procedure: 'Remodelação Glútea',
     category: 'gluteo',
     quote: 'Resultado imediato e muito natural.',
-    beforeImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop'
+    beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540639/regiao-traseira-mulher-roupa-escura_vn72xs.webp',
+    afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540711/imagem-de-nude-com-marcacoes-de-cirurgia-estetica-jpg_hvpolq.webp'
   },
   {
     id: 't4',
@@ -136,8 +145,8 @@ export const TESTIMONIALS: Testimonial[] = [
     procedure: 'Bioestimulador Corporal',
     category: 'corporal',
     quote: 'Melhora visível na flacidez do abdômen.',
-    beforeImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop'
+    beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543563/mulher-hiperpigmentacao-e-acne_em9sas.webp',
+    afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543562/rostofemininoimagem_i8afnf.webp'
   },
     {
     id: 't4-b',
@@ -145,8 +154,8 @@ export const TESTIMONIALS: Testimonial[] = [
     procedure: 'Definição Abdominal',
     category: 'corporal',
     quote: 'Excelente profissional e estrutura.',
-    beforeImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop',
-    afterImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop'
+    beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543838/mulher-cuidados-pele-estetica-clinica_b3plg7.webp',
+    afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543838/pessoa-cuidados-com-pele_vodklk.webp'
   }
 ];
 
@@ -156,8 +165,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Rejuvenescimento Global',
     technique: 'Fenol Like',
     shortDescription: 'Tratamento intensivo para fotoenvelhecimento severo.',
-    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771351511/Design_sem_nome_1_e3ngvg.png",
-    fullImage: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771351511/Design_sem_nome_1_e3ngvg.png",
+    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771449737/tratamento-para-acne-e-cicatrizes-na-pele_tr4s4d.webp",
+    fullImage: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771449737/tratamento-para-acne-e-cicatrizes-na-pele_tr4s4d.webp",
     details: {
       diagnosis: 'Paciente apresentava rítides (rugas) estáticas profundas e elastose solar severa (grau IV de Glogau).',
       conduct: 'Realizado Peeling Fenol Like com monitoramento cardíaco em ambiente ambulatorial controlado. O procedimento visa a quimiocirurgia da epiderme e derme papilar.',
@@ -169,8 +178,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Definição Mandibular',
     technique: 'Preenchimento com Ácido Hialurônico',
     shortDescription: 'Estruturação do terço inferior da face.',
-    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771351512/Design_sem_nome_2_kkva9v.png",
-    fullImage: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771351512/Design_sem_nome_2_kkva9v.png",
+    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771593663/tratamento-pele-do-pescoco-antes-e-depois_m49hze.webp",
+    fullImage: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771593663/tratamento-pele-do-pescoco-antes-e-depois_m49hze.webp",
     details: {
       diagnosis: 'Retrognatismo leve e perda de definição do ângulo da mandíbula.',
       conduct: 'Aplicação de ácido hialurônico de alta reticulação em pontos estratégicos (MD Codes) para projeção do mento e definição do ângulo mandibular.',
@@ -182,8 +191,8 @@ export const CASE_STUDIES: CaseStudy[] = [
     title: 'Volumização Glútea',
     technique: 'Bioestimuladores + AH',
     shortDescription: 'Correção de depressão trocantérica.',
-    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771351279/Volumizacao-de-Gluteos_hlcam2.jpg",
-    fullImage: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771351279/Volumizacao-de-Gluteos_hlcam2.jpg",
+    image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536589/tratamento-estetico-regiao-glutea-clinica-felipe-meletti_fzqk7b.webp",
+    fullImage: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536589/tratamento-estetico-regiao-glutea-clinica-felipe-meletti_fzqk7b.webp",
     details: {
       diagnosis: 'Paciente insatisfeita com o formato "quadrado" do glúteo e depressão lateral (hip dips).',
       conduct: 'Associação de Ácido Poliláctico (Sculptra) para qualidade da pele e Ácido Hialurônico corporal para projeção e preenchimento das laterais.',
@@ -192,9 +201,9 @@ export const CASE_STUDIES: CaseStudy[] = [
   }
 ];
 
-export const IMPACT_STATS = [
-  { value: '94%', label: 'Relatam aumento na autoestima', icon: <Activity className="w-6 h-6 text-gold-500" /> },
-  { value: '89%', label: 'Sentem-se mais confiantes', icon: <Award className="w-6 h-6 text-gold-500" /> },
-  { value: '78%', label: 'Melhora em relacionamentos', icon: <Sparkles className="w-6 h-6 text-gold-500" /> },
-  { value: '91%', label: 'Recomendariam a amigos', icon: <ShieldCheck className="w-6 h-6 text-gold-500" /> },
+export const IMPACT_STATS: ClinicStat[] = [
+  { value: '94%', label: 'Relatam aumento na autoestima', icon: Activity },
+  { value: '89%', label: 'Sentem-se mais confiantes', icon: Award },
+  { value: '78%', label: 'Melhora em relacionamentos', icon: Sparkles },
+  { value: '91%', label: 'Recomendariam a amigos', icon: ShieldCheck },
 ];

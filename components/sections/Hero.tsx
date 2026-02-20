@@ -5,13 +5,13 @@ import { IMAGES } from '../../constants';
 
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative h-screen w-full overflow-hidden flex items-center justify-center">
+    <section id="home" className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-dark-900">
       {/* Background with Overlay */}
       <div className="absolute inset-0 z-0">
         <img 
           src={IMAGES.hero} 
           alt="Clínica Felipe Meletti" 
-          className="w-full h-full object-cover object-center scale-105 animate-[float_20s_ease-in-out_infinite]"
+          className="w-full h-full object-contain object-center"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-dark-900/90 via-dark-900/60 to-transparent" />
       </div>
