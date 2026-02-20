@@ -167,7 +167,7 @@
           subtitle: 'Rejuvenescimento Profundo',
           description: 'A técnica mais avançada para renovação celular completa. Indicado para peles maduras ou com cicatrizes profundas, proporcionando um efeito de "pele nova" em apenas uma sessão.',
           benefits: ['Redução drástica de rugas profundas', 'Eliminação de manchas senis', 'Retração de flacidez severa', 'Resultados que duram anos'],
-          image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771349904/7B2FF4CC-6861-47EC-85AB-EED3B5650907.png.6ac300486755d68ddcf766bc47055114_kpdjxp.png",
+          image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771539507/antes-depois-rejuvenescimento-facial_u8lt44.webp",
           tags: ['MAIS PROCURADO', 'REJUVENESCIMENTO'],
           link: 'https://www.clinicafelipemeletti.com.br/dt_procedures/peeling-de-fenol-like'
         },
@@ -177,7 +177,7 @@
           subtitle: 'Volume e Contorno Definido',
           description: 'Protocolo exclusivo Dr. Felipe Meletti para volumização e correção de desníveis nos glúteos sem cirurgia. Utilizamos preenchedores biocompatíveis de alta durabilidade.',
           benefits: ['Aumento de volume imediato', 'Correção da depressão trocantérica', 'Melhora da qualidade da pele (celulite)', 'Procedimento minimamente invasivo'],
-          image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771349999/WhatsApp-Image-2022-11-10-at-21.04.20-1201x800_c0kl4w.jpg",
+          image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771544171/antes-depois-tratamento-estetico-regiao-glutea_e11c2q.webp",
           tags: ['CORPO', 'RESULTADO IMEDIATO'],
           link: 'https://www.clinicafelipemeletti.com.br/dt_procedures/remodelacao-glutea'
         },
@@ -194,21 +194,28 @@
       ];
 
       const TESTIMONIALS = [
-        { id: 't1', patientName: 'Maria S.', procedure: 'Peeling Fenol Like', category: 'peeling', quote: 'Minha pele nunca esteve tão bonita. O resultado foi muito além do que eu imaginava.', beforeImage: 'https://images.unsplash.com/photo-1551024601-564d6e67e275?q=80&w=987&auto=format&fit=crop', afterImage: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1057&auto=format&fit=crop' },
-        { id: 't1b', patientName: 'Joana D.', procedure: 'Peeling Fenol Like', category: 'peeling', quote: 'Impressionante como as manchas sumiram.', beforeImage: 'https://images.unsplash.com/photo-1551024601-564d6e67e275?q=80&w=987&auto=format&fit=crop', afterImage: 'https://images.unsplash.com/photo-1551024709-8f23befc6f87?q=80&w=1057&auto=format&fit=crop' },
-        { id: 't2', patientName: 'Ana P.', procedure: 'Harmonização Facial', category: 'facial', quote: 'O Dr. Felipe respeitou meus traços naturais. A harmonização ficou sutil e elegante.', beforeImage: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=2070&auto=format&fit=crop', afterImage: 'https://images.unsplash.com/photo-1512413914633-b5043f4041ea?q=80&w=2053&auto=format&fit=crop' },
-        { id: 't2b', patientName: 'Beatriz L.', procedure: 'Preenchimento Labial', category: 'facial', quote: 'Lábios desenhados e naturais. Amei o resultado.', beforeImage: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?q=80&w=2070&auto=format&fit=crop', afterImage: 'https://images.unsplash.com/photo-1512413914633-b5043f4041ea?q=80&w=2053&auto=format&fit=crop' },
-        { id: 't3', patientName: 'Carla M.', procedure: 'Remodelação Glútea', category: 'gluteo', quote: 'Recuperei minha autoestima. O contorno ficou perfeito e a celulite desapareceu.', beforeImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop', afterImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop' },
-        { id: 't3b', patientName: 'Fernanda T.', procedure: 'Remodelação Glútea', category: 'gluteo', quote: 'Resultado imediato e muito natural.', beforeImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop', afterImage: 'https://images.unsplash.com/photo-1545167622-3a6ac15600f3?q=80&w=2071&auto=format&fit=crop' },
-        { id: 't4', patientName: 'Roberto J.', procedure: 'Bioestimulador Corporal', category: 'corporal', quote: 'Melhora visível na flacidez do abdômen.', beforeImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop', afterImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop' },
-        { id: 't4b', patientName: 'Lucas M.', procedure: 'Definição Abdominal', category: 'corporal', quote: 'Excelente profissional e estrutura.', beforeImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop', afterImage: 'https://images.unsplash.com/photo-1571019614242-c5c5dee9f50b?q=80&w=2070&auto=format&fit=crop' }
+        // Peeling
+        { id: 't1', patientName: 'Maria S.', procedure: 'Peeling Fenol Like', category: 'peeling', quote: 'Minha pele nunca esteve tão bonita. O resultado foi muito além do que eu imaginava.', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537611/mulher-pele-sensibilizada-procedimento-estetico_cigutt.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537596/mulher-maquiagem-cuidados-pessoais_ys6kpl.webp' },
+        { id: 't1b', patientName: 'Joana D.', procedure: 'Peeling Fenol Like', category: 'peeling', quote: 'Impressionante como as manchas sumiram.', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537963/mulher-com-faixa-de-compression-e-cabelo-castanho-jpg_eprmga.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771537963/retratos-mulher-idosa-cabelo-curto-grisalho-jpg_cxv204.webp' },
+        
+        // Facial
+        { id: 't2', patientName: 'Ana P.', procedure: 'Harmonização Facial', category: 'facial', quote: 'O Dr. Felipe respeitou meus traços naturais. A harmonização ficou sutil e elegante.', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538514/tratamento-pele-acne-cicatrizes-jpg_buuahg.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538514/mulher-com-pele-de-acne-e-manifestacoes-inflamatorias_alvumz.webp' },
+        { id: 't2b', patientName: 'Beatriz L.', procedure: 'Preenchimento Labial', category: 'facial', quote: 'Lábios desenhados e naturais. Amei o resultado.', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538933/olho-humano-detaliado_olcmnx.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771538932/olho-maquiagem-sobrancelha-cilios-pele-lisa_eru4zj.webp' },
+        
+        // Gluteo
+        { id: 't3', patientName: 'Carla M.', procedure: 'Remodelação Glútea', category: 'gluteo', quote: 'Recuperei minha autoestima. O contorno ficou perfeito e a celulite desapareceu.', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540100/imagem-de-uma-pessoa-de-meia-strip-com-tatuagem-e-calcinha-preta_r1zolt.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540101/mulher-tatuagem-bumbum-roupa-intima-preta_olthx6.webp' },
+        { id: 't3b', patientName: 'Fernanda T.', procedure: 'Remodelação Glútea', category: 'gluteo', quote: 'Resultado imediato e muito natural.', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540639/regiao-traseira-mulher-roupa-escura_vn72xs.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771540711/imagem-de-nude-com-marcacoes-de-cirurgia-estetica-jpg_hvpolq.webp' },
+        
+        // Corporal
+        { id: 't4', patientName: 'Roberto J.', procedure: 'Bioestimulador Corporal', category: 'corporal', quote: 'Melhora visível na flacidez do abdômen.', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543563/mulher-hiperpigmentacao-e-acne_em9sas.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543562/rostofemininoimagem_i8afnf.webp' },
+        { id: 't4b', patientName: 'Lucas M.', procedure: 'Definição Abdominal', category: 'corporal', quote: 'Excelente profissional e estrutura.', beforeImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543838/mulher-cuidados-pele-estetica-clinica_b3plg7.webp', afterImage: 'https://res.cloudinary.com/doqw5aqcf/image/upload/v1771543838/pessoa-cuidados-com-pele_vodklk.webp' }
       ];
 
       const CASE_STUDIES = [
         {
           id: 'case1', title: 'Rejuvenescimento Global', technique: 'Fenol Like', shortDescription: 'Tratamento intensivo para fotoenvelhecimento severo.',
-          image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771351511/Design_sem_nome_1_e3ngvg.png",
-          fullImage: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771351511/Design_sem_nome_1_e3ngvg.png",
+          image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771449737/tratamento-para-acne-e-cicatrizes-na-pele_tr4s4d.webp",
+          fullImage: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771449737/tratamento-para-acne-e-cicatrizes-na-pele_tr4s4d.webp",
           details: { diagnosis: 'Paciente apresentava rítides estáticas profundas e elastose solar severa.', conduct: 'Realizado Peeling Fenol Like com monitoramento cardíaco.', result: 'Retração total da pele flácida e formação de "pele nova".' }
         },
         {
@@ -219,8 +226,8 @@
         },
         {
           id: 'case3', title: 'Volumização Glútea', technique: 'Bioestimuladores + AH', shortDescription: 'Correção de depressão trocantérica.',
-          image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771351279/Volumizacao-de-Gluteos_hlcam2.jpg",
-          fullImage: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771351279/Volumizacao-de-Gluteos_hlcam2.jpg",
+          image: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536589/tratamento-estetico-regiao-glutea-clinica-felipe-meletti_fzqk7b.webp",
+          fullImage: "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536589/tratamento-estetico-regiao-glutea-clinica-felipe-meletti_fzqk7b.webp",
           details: { diagnosis: 'Insatisfação com formato "quadrado".', conduct: 'Associação de Ácido Poliláctico e Hialurônico.', result: 'Glúteos arredondados e firmes.' }
         }
       ];
@@ -394,14 +401,31 @@
       );
 
       const ImageLoop = () => {
-        const loopImages = [IMAGES.clinicInterior1, IMAGES.procedure1, IMAGES.clinicInterior2, IMAGES.procedure2, IMAGES.procedure3, IMAGES.clinicInterior1, IMAGES.procedure1, IMAGES.clinicInterior2];
+        // Updated images array as requested
+        const loopImages = [
+          "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536884/antes-depois-tratamento-estetico-felipe-meletti_gjmmn7.webp",
+          "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536589/tratamento-estetico-regiao-glutea-clinica-felipe-meletti_fzqk7b.webp",
+          "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536243/tratamento-de-gordura-regiao-glutea_u7mkjl.webp",
+          "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771452221/tratamento-celulite-clinica-felipe-meletti_mhpoj6.webp",
+          "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771535778/transformacao-fisica-clinica-ameletti_px87b1.webp",
+          "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536011/antes-depois-tratamento-estetico-gluteos_zsnjzu.webp",
+          "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536884/antes-depois-tratamento-estetico-felipe-meletti_gjmmn7.webp", // Repeat for loop
+          "https://res.cloudinary.com/doqw5aqcf/image/upload/v1771536589/tratamento-estetico-regiao-glutea-clinica-felipe-meletti_fzqk7b.webp"
+        ];
+
         return (
           <section className="py-12 bg-white overflow-hidden relative border-b border-gold-100/50">
-            {/* Reduced opacity for gradient overlay: from-white/85 instead of solid white */}
-            <div className="absolute inset-0 pointer-events-none z-10 bg-gradient-to-r from-white/85 via-transparent to-white/85 w-full h-full" />
+            {/* Reduced opacity overlay: 5% on sides */}
+            <div className="absolute inset-y-0 left-0 w-[5%] z-10 bg-gradient-to-r from-white to-transparent pointer-events-none" />
+            <div className="absolute inset-y-0 right-0 w-[5%] z-10 bg-gradient-to-l from-white to-transparent pointer-events-none" />
+            
             <div className="flex animate-[scroll_40s_linear_infinite] gap-8 w-max px-8">
-              {loopImages.map((img, i) => <div key={i} className="w-[300px] h-[200px] md:h-[250px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg"><img src={img} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" /></div>)}
-              {loopImages.map((img, i) => <div key={`d-${i}`} className="w-[300px] h-[200px] md:h-[250px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg"><img src={img} className="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700" /></div>)}
+              {loopImages.map((img, index) => (
+                <div key={index} className="w-[300px] h-[200px] md:h-[250px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transform hover:scale-105 transition-transform duration-500">
+                  {/* Removed grayscale hover effect */}
+                  <img src={img} className="w-full h-full object-cover transition-all duration-700" />
+                </div>
+              ))}
             </div>
             <style>{`@keyframes scroll { 0% { transform: translateX(0); } 100% { transform: translateX(-50%); } }`}</style>
           </section>
@@ -586,118 +610,6 @@
         </section>
       );
 
-      const CaseStudies = () => {
-        const [selectedCase, setSelectedCase] = useState(null);
-        return (
-          <section className="py-24 bg-cream overflow-hidden">
-            <div className="max-w-[1400px] mx-auto px-6">
-              <div className="mb-12 flex justify-between items-end">
-                 <div><span className="text-gold-600 text-xs font-bold tracking-[0.2em] uppercase">Estudos Clínicos</span><h2 className="font-serif text-4xl text-dark-900 mt-2">Diagnóstico & Conduta</h2></div>
-              </div>
-              <div className="flex gap-8 overflow-x-auto pb-8 no-scrollbar snap-x snap-mandatory">
-                 {CASE_STUDIES.map((study) => (
-                   <div key={study.id} className="min-w-[300px] md:min-w-[350px] snap-center bg-white rounded-xl shadow-lg overflow-hidden cursor-pointer group transform hover:-translate-y-2 transition-all duration-300" onClick={() => setSelectedCase(study)}>
-                     <div className="h-[250px] overflow-hidden relative">
-                        <img src={study.image} alt={study.title} className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" />
-                        <div className="absolute inset-0 bg-black/20 group-hover:bg-black/40 transition-colors"></div>
-                        <div className="absolute bottom-4 left-4 text-white"><p className="text-xs uppercase tracking-wider bg-gold-500/80 inline-block px-2 py-1 rounded mb-2">{study.technique}</p><h3 className="font-serif text-xl">{study.title}</h3></div>
-                     </div>
-                     <div className="p-6"><p className="text-slate-600 text-sm line-clamp-2 mb-4">{study.shortDescription}</p><button className="text-gold-600 text-sm font-bold uppercase tracking-widest flex items-center gap-2 group-hover:gap-3 transition-all">Ver Caso Completo <Icon name="ArrowRight" size={14} /></button></div>
-                   </div>
-                 ))}
-              </div>
-            </div>
-            {selectedCase && (
-              <div className="fixed inset-0 z-[100] flex items-center justify-center p-4 md:p-8">
-                 <div className="absolute inset-0 bg-dark-900/80 backdrop-blur-sm" onClick={() => setSelectedCase(null)}></div>
-                 <div className="bg-white w-full max-w-[900px] max-h-[90vh] rounded-2xl shadow-2xl relative z-10 flex flex-col md:flex-row overflow-hidden animate-slide-up">
-                    <button onClick={() => setSelectedCase(null)} className="absolute top-4 right-4 z-20 bg-white/50 hover:bg-white p-2 rounded-full transition-colors"><Icon name="X" size={24} className="text-dark-900" /></button>
-                    <div className="w-full md:w-[45%] h-[300px] md:h-auto relative"><img src={selectedCase.fullImage} className="w-full h-full object-cover" /></div>
-                    <div className="w-full md:w-[55%] p-8 md:p-12 overflow-y-auto custom-scrollbar">
-                       <h2 className="font-serif text-3xl text-gold-600 mb-2">{selectedCase.title}</h2>
-                       <p className="text-slate-400 text-sm uppercase tracking-wider mb-8">{selectedCase.technique}</p>
-                       <div className="space-y-8">
-                          <div><h4 className="text-dark-900 font-bold mb-2 border-b border-gold-200 pb-2">Diagnóstico</h4><p className="text-slate-600 leading-relaxed">{selectedCase.details.diagnosis}</p></div>
-                          <div><h4 className="text-dark-900 font-bold mb-2 border-b border-gold-200 pb-2">Conduta Médica</h4><p className="text-slate-600 leading-relaxed">{selectedCase.details.conduct}</p></div>
-                          <div className="bg-gold-50 p-6 rounded-lg border border-gold-200"><h4 className="text-gold-700 font-bold mb-2">Resultado</h4><p className="text-gold-900 leading-relaxed">{selectedCase.details.result}</p></div>
-                       </div>
-                       <button onClick={() => window.open(`https://wa.me/5554991928750?text=Olá, gostaria de saber mais sobre o caso de ${selectedCase.title}`, '_blank')} className="w-full mt-8 bg-dark-900 text-white py-4 rounded-lg hover:bg-gold-500 transition-colors font-bold uppercase tracking-widest text-sm">Agendar Avaliação Semelhante</button>
-                    </div>
-                 </div>
-              </div>
-            )}
-          </section>
-        );
-      };
-
-      const Locations = () => {
-        const units = [
-          { city: 'São Paulo', state: 'SP', name: 'Hospital IBIRAPUERA', address: 'Avenida Ibirapuera, 1326\nJardim Luzitânia', color: 'from-slate-800 to-slate-900' },
-          { city: 'Caxias do Sul', state: 'RS', name: 'Prime Offices', address: 'Rua Sinimbu, 1878 – Sala 903\nCentro', color: 'from-slate-700 to-slate-800' },
-          { city: 'Brasília', state: 'DF', name: 'Life Centro Médico', address: 'Sgam, 608 – Módulo F – Bloco A\nSalas 226/228/229/230 – Asa Norte', color: 'from-slate-800 to-slate-900' }
-        ];
-        return (
-          <section id="contact" className="py-24 bg-cream border-t border-gold-200">
-            <div className="max-w-[1200px] mx-auto px-6">
-              <div className="text-center mb-16"><span className="text-gold-600 text-xs font-bold tracking-[0.2em] uppercase">Nossas Unidades</span><h2 className="font-serif text-4xl text-dark-900 mt-4">Encontre-nos em <span className="text-gold-500">Três Estados</span></h2></div>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                {units.map((unit, idx) => (
-                  <div key={idx} className={`relative overflow-hidden rounded-2xl p-8 text-white bg-gradient-to-br ${unit.color} group hover:-translate-y-2 transition-transform duration-300 shadow-xl`}>
-                     <Icon name="MapPin" className="absolute -bottom-4 -right-4 text-white/5 w-32 h-32 transform group-hover:scale-110 transition-transform" />
-                     <div className="relative z-10"><span className="inline-block px-3 py-1 bg-gold-500/20 border border-gold-500/50 text-gold-400 text-xs font-bold rounded-full mb-6">{unit.state}</span><h3 className="font-serif text-2xl mb-2">{unit.city}</h3><p className="font-bold text-lg mb-4 text-slate-300">{unit.name}</p><p className="text-sm text-slate-400 whitespace-pre-line leading-relaxed">{unit.address}</p><a href={`https://maps.google.com/?q=${unit.name} ${unit.city}`} target="_blank" className="inline-block mt-8 text-gold-400 hover:text-white transition-colors text-sm font-bold uppercase tracking-widest border-b border-gold-400/30 hover:border-white pb-1">Ver no Mapa</a></div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </section>
-        );
-      };
-
-      const Footer = () => (
-        <footer className="bg-dark-900 text-white pt-20 pb-10 border-t border-gold-500/20">
-          <div className="max-w-[1200px] mx-auto px-6 md:px-12 grid grid-cols-1 md:grid-cols-4 gap-12">
-            <div className="col-span-1 md:col-span-1">
-              <h2 className="font-serif text-2xl text-gold-500 mb-4">Dr. Felipe Meletti</h2>
-              <p className="text-slate-400 text-sm leading-relaxed mb-6">Transformando vidas através da medicina estética de alta precisão, com resultados naturais e sofisticados.</p>
-              <div className="flex gap-4">
-                 <a href="https://www.instagram.com/clinicafelipemeletti/" target="_blank" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-gold-500 hover:border-gold-500 transition-all group"><Icon name="Instagram" size={18} className="text-slate-400 group-hover:text-white" /></a>
-                 <a href="https://www.facebook.com/clinicafelipemeletti" target="_blank" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-gold-500 hover:border-gold-500 transition-all group"><Icon name="Facebook" size={18} className="text-slate-400 group-hover:text-white" /></a>
-                 <a href="https://www.youtube.com/user/ClinicaFelipeMeletti" target="_blank" className="w-10 h-10 rounded-full border border-slate-700 flex items-center justify-center hover:bg-gold-500 hover:border-gold-500 transition-all group"><Icon name="Youtube" size={18} className="text-slate-400 group-hover:text-white" /></a>
-              </div>
-            </div>
-            <div>
-              <h3 className="text-gold-200 font-serif text-lg mb-6">Navegação</h3>
-              <ul className="space-y-3 text-sm text-slate-400">
-                <li><a href="https://www.clinicafelipemeletti.com.br/a-clinica" className="hover:text-gold-500 transition-colors">A Clínica</a></li>
-                <li><a href="https://www.clinicafelipemeletti.com.br/tratamentos" className="hover:text-gold-500 transition-colors">Serviços</a></li>
-                <li><a href="https://www.clinicafelipemeletti.com.br/duvidas-frequentes" className="hover:text-gold-500 transition-colors">Dúvidas Frequentes</a></li>
-                <li><a href="https://www.clinicafelipemeletti.com.br/fale-conosco" className="hover:text-gold-500 transition-colors">Contato</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-gold-200 font-serif text-lg mb-6">Procedimentos</h3>
-              <ul className="space-y-3 text-sm text-slate-400">
-                <li><a href="https://www.clinicafelipemeletti.com.br/dt_procedures/peeling-de-fenol-like" className="hover:text-gold-500 transition-colors">Peeling Fenol Like</a></li>
-                <li><a href="https://www.clinicafelipemeletti.com.br/dt_procedures/remodelacao-glutea" className="hover:text-gold-500 transition-colors">Remodelação Glútea</a></li>
-                <li><a href="https://www.clinicafelipemeletti.com.br/dt_procedures/ultraformer" className="hover:text-gold-500 transition-colors">Ultraformer</a></li>
-              </ul>
-            </div>
-            <div>
-              <h3 className="text-gold-200 font-serif text-lg mb-6">Contato</h3>
-              <ul className="space-y-4 text-sm text-slate-400">
-                <li className="flex items-center gap-3"><Icon name="Phone" size={18} className="text-gold-500 shrink-0" /><div className="flex flex-col"><span>(54) 99192-8750</span><span>(61) 99289-8064</span></div></li>
-                <li className="flex items-center gap-3"><Icon name="Mail" size={18} className="text-gold-500 shrink-0" /><span>falecom@clinicafelipemeletti.com.br</span></li>
-                <li className="flex items-start gap-3 mt-2 pt-4 border-t border-slate-800"><Icon name="Clock" size={18} className="text-gold-500 shrink-0 mt-1" /><div><span className="block font-bold text-white mb-1">Horário de Atendimento</span><span className="block">Segunda a Sexta</span><span className="block">8:30 – 12:00</span><span className="block">13:30 – 18:30</span></div></li>
-              </ul>
-            </div>
-          </div>
-          <div className="max-w-[1200px] mx-auto px-6 mt-16 pt-8 border-t border-slate-800 flex flex-col md:flex-row justify-between items-center text-xs text-slate-500">
-            <p>© 2026 Dr. Felipe Meletti. Todos os direitos reservados.</p>
-            <div className="flex items-center gap-2 mt-4 md:mt-0"><span>Feito com <span className="text-gold-500">♥</span> para transformar vidas</span></div>
-          </div>
-        </footer>
-      );
-      
       const ScientificImpact = () => {
         const IMPACT_STATS = [
           { value: '94%', label: 'Relatam aumento na autoestima', icon: 'Activity' },
@@ -789,11 +701,11 @@
               <main>
                 <Hero />
                 <ImageLoop />
-                <TreatmentsGrid />
-                <PremiumServices />
                 <BeforeAfter />
+                <PremiumServices />
                 <DoctorProfile />
                 <ScientificImpact />
+                <TreatmentsGrid />
                 <CaseStudies />
                 <ClinicStructure />
                 <Locations />
