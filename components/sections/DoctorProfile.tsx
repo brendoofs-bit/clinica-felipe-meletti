@@ -1,6 +1,7 @@
 import React from 'react';
 import { IMAGES } from '../../constants';
-import { GraduationCap, Award, Star, Users } from 'lucide-react';
+import { GraduationCap, Award, Star, Users, MessageCircle } from 'lucide-react';
+import Button from '../ui/Button';
 
 const DoctorProfile: React.FC = () => {
   return (
@@ -79,7 +80,7 @@ const DoctorProfile: React.FC = () => {
            </div>
 
            {/* Stats Grid */}
-           <div className="grid grid-cols-4 gap-4 border-t border-slate-800 pt-8">
+           <div className="grid grid-cols-4 gap-4 border-t border-slate-800 pt-8 mb-10">
              <div className="text-center">
                 <div className="mx-auto w-10 h-10 mb-2 text-teal-500"><Award /></div>
                 <div className="text-xl font-bold text-white">15+</div>
@@ -92,7 +93,7 @@ const DoctorProfile: React.FC = () => {
              </div>
              <div className="text-center">
                 <div className="mx-auto w-10 h-10 mb-2 text-teal-500"><GraduationCap /></div>
-                <div className="text-xl font-bold text-white">5+</div> {/* Changed from 50+ to 5+ */}
+                <div className="text-xl font-bold text-white">5+</div>
                 <div className="text-[10px] uppercase text-slate-500">Certificações</div>
              </div>
              <div className="text-center">
@@ -101,6 +102,14 @@ const DoctorProfile: React.FC = () => {
                 <div className="text-[10px] uppercase text-slate-500">Satisfação</div>
              </div>
            </div>
+
+           <Button 
+                variant="primary" 
+                icon={<MessageCircle size={18} />}
+                onClick={() => window.open('https://wa.me/5554991928750', '_blank')}
+            >
+                Agendar com Dr. Felipe
+            </Button>
         </div>
       </div>
     </section>

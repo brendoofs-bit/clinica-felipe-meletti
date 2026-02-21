@@ -1,6 +1,7 @@
 import React from 'react';
-import { Shield, Thermometer, Heart, Star } from 'lucide-react';
+import { Shield, Thermometer, Heart, Star, MessageCircle } from 'lucide-react';
 import { IMAGES } from '../../constants';
+import Button from '../ui/Button';
 
 const ClinicStructure: React.FC = () => {
   return (
@@ -16,7 +17,7 @@ const ClinicStructure: React.FC = () => {
              Na medicina estética, a segurança é o alicerce da beleza. Nossa clínica opera sob rigorosos protocolos de esterilização hospitalar e rastreabilidade total de insumos (ANVISA). Diferente de franquias, aqui não existe delegação de risco: procedimentos invasivos são planejados e executados exclusivamente pelo Dr. Felipe Meletti.
            </p>
 
-           <div className="space-y-6">
+           <div className="space-y-6 mb-10">
               <div className="flex gap-4">
                  <div className="w-12 h-12 rounded-full bg-gold-100 flex items-center justify-center shrink-0">
                     <Shield className="text-gold-600" size={24} />
@@ -47,6 +48,14 @@ const ClinicStructure: React.FC = () => {
                  </div>
               </div>
            </div>
+
+           <Button 
+                variant="primary" 
+                icon={<MessageCircle size={18} />}
+                onClick={() => window.open('https://wa.me/5554991928750', '_blank')}
+            >
+                Conheça nossa estrutura
+            </Button>
         </div>
 
         {/* Visuals */}

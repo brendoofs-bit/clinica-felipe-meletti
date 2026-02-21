@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { CASE_STUDIES } from '../../constants';
-import { ArrowRight, X, Hand } from 'lucide-react';
+import { ArrowRight, X, Hand, MessageCircle } from 'lucide-react';
 import { CaseStudy } from '../../types';
+import Button from '../ui/Button';
 
 const CaseStudies: React.FC = () => {
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
@@ -24,7 +25,6 @@ const CaseStudies: React.FC = () => {
         </div>
 
         {/* Horizontal Scroll Area */}
-        {/* Adjusted padding and widths for peek-a-boo effect on mobile */}
         <div className="flex gap-4 md:gap-8 overflow-x-auto pb-8 no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0">
            {CASE_STUDIES.map((study) => (
              <div 
@@ -50,6 +50,17 @@ const CaseStudies: React.FC = () => {
            ))}
            {/* Spacer for better scrolling on mobile */}
            <div className="min-w-[1px] md:hidden"></div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-12 text-center">
+             <Button 
+                variant="outline" 
+                icon={<MessageCircle size={18} />}
+                onClick={() => window.open('https://wa.me/5554991928750', '_blank')}
+            >
+                Agendar Avaliação
+            </Button>
         </div>
       </div>
 

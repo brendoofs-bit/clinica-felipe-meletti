@@ -1,15 +1,20 @@
 import React from 'react';
 import { IMPACT_STATS } from '../../constants';
+import Button from '../ui/Button';
+import { MessageCircle } from 'lucide-react';
 
 const ScientificImpact: React.FC = () => {
   return (
     <section className="py-24 bg-dark-900 relative">
       <div className="max-w-[1200px] mx-auto px-6">
         <div className="text-center mb-16">
-          <span className="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Ciência & Autoestima</span>
-          <h2 className="font-serif text-4xl text-white mt-4">O Poder da <span className="text-teal-400">Transformação</span></h2>
-          <p className="mt-4 text-slate-400 max-w-2xl mx-auto">
-            Estudos científicos comprovam: procedimentos estéticos vão muito além da aparência. São investimentos em autoconfiança, bem-estar emocional e qualidade de vida.
+          <span className="text-slate-500 text-sm font-medium tracking-[0.2em] uppercase block mb-4">O Poder da Transformação</span>
+          
+          <h2 className="font-serif text-5xl md:text-7xl text-gold-400 mt-4 mb-8">Ciência & Autoestima</h2>
+          
+          <p className="mt-4 text-white text-xl md:text-2xl font-serif max-w-3xl mx-auto leading-relaxed">
+            <span className="text-teal-400 font-bold block mb-2">Estudos científicos comprovam:</span> 
+            Procedimentos estéticos vão muito além da aparência. São investimentos em autoconfiança, bem-estar emocional e qualidade de vida.
           </p>
         </div>
 
@@ -50,6 +55,17 @@ const ScientificImpact: React.FC = () => {
               <h4 className="text-white font-bold mb-3">Qualidade de Vida</h4>
               <p className="text-slate-400 text-sm leading-relaxed">Pacientes relatam melhoras significativas na vida social e profissional pós-procedimento.</p>
            </div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-16 text-center">
+             <Button 
+                variant="primary" 
+                icon={<MessageCircle size={18} />}
+                onClick={() => window.open('https://wa.me/5554991928750', '_blank')}
+            >
+                Agende sua consulta agora
+            </Button>
         </div>
       </div>
     </section>

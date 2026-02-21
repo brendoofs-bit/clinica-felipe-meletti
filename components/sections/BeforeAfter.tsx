@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect, useCallback } from 'react';
 import { TESTIMONIALS } from '../../constants';
-import { Quote } from 'lucide-react';
+import { Quote, MessageCircle, Hand, ChevronLeft, ChevronRight } from 'lucide-react';
+import Button from '../ui/Button';
 
 const CompareImage: React.FC<{ before: string; after: string }> = ({ before, after }) => {
   const [sliderPosition, setSliderPosition] = useState(50);
@@ -36,7 +37,7 @@ const CompareImage: React.FC<{ before: string; after: string }> = ({ before, aft
   return (
     <div 
       ref={containerRef}
-      className="relative h-[400px] w-full overflow-hidden select-none cursor-ew-resize group"
+      className="relative h-[300px] md:h-[380px] w-full overflow-hidden select-none cursor-ew-resize group" // Reduced height
       onMouseDown={handleMouseDown}
       onMouseMove={handleMouseMove}
       onTouchMove={handleTouchMove}
@@ -62,7 +63,7 @@ const CompareImage: React.FC<{ before: string; after: string }> = ({ before, aft
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 bg-white rounded-full flex items-center justify-center shadow-lg">
            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="text-dark-900">
              <polyline points="15 18 9 12 15 6"></polyline>
-             <polyline points="9 18 3 12 9 6" opacity="0"></polyline> {/* Visual balance */}
+             <polyline points="9 18 3 12 9 6" opacity="0"></polyline>
              <polyline points="19 12 13 12" opacity="0"></polyline>
              <path d="M4 12h16"></path>
            </svg>
@@ -73,40 +74,44 @@ const CompareImage: React.FC<{ before: string; after: string }> = ({ before, aft
 };
 
 const BeforeAfter: React.FC = () => {
-  // Removed 'all', default to 'peeling' as per "Remover o filtro Todos"
-  const [filter, setFilter] = useState<'facial' | 'corporal' | 'peeling' | 'gluteo'>('peeling');
+  const [filter, setFilter] = useState<'facial' | 'peeling' | 'gluteo'>('peeling'); // Default to 'peeling', removed 'all'
+  const scrollRef = useRef<HTMLDivElement>(null);
 
-  // Filter and Limit to 2
-  const filtered = TESTIMONIALS
-    .filter(t => t.category === filter)
-    .slice(0, 2);
+  const filtered = TESTIMONIALS.filter(t => t.category === filter);
 
   const filters = [
     { id: 'peeling', label: 'Peeling' },
     { id: 'gluteo', label: 'Glúteo' },
     { id: 'facial', label: 'Facial' },
-    { id: 'corporal', label: 'Corporal' },
   ];
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollRef.current) {
+      const { current } = scrollRef;
+      const scrollAmount = direction === 'left' ? -current.offsetWidth : current.offsetWidth;
+      current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+    }
+  };
 
   return (
     <section className="py-24 bg-dark-900 text-white border-t border-slate-800">
-      <div className="max-w-[1200px] mx-auto px-6">
+      <div className="max-w-[1400px] mx-auto px-6">
         <div className="text-center mb-12">
           <span className="text-gold-500 text-xs font-bold tracking-[0.2em] uppercase">Resultados Reais</span>
           <h2 className="font-serif text-4xl md:text-5xl mt-4">Antes & <span className="text-gold-400 italic">Depois</span></h2>
           <p className="mt-4 text-slate-400">Transformações que inspiram confiança e celebram a beleza única de cada paciente</p>
         </div>
 
-        {/* Filters */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        {/* Filters - Enhanced with Glow */}
+        <div className="flex flex-wrap justify-center gap-4 mb-12">
           {filters.map(f => (
             <button
               key={f.id}
               onClick={() => setFilter(f.id as any)}
-              className={`px-6 py-2 rounded-full text-sm transition-all duration-300 ${
+              className={`px-8 py-3 rounded-full text-sm font-bold tracking-widest uppercase transition-all duration-500 border ${
                 filter === f.id 
-                  ? 'bg-gradient-to-r from-teal-600 to-teal-500 text-white shadow-lg shadow-teal-900/50' 
-                  : 'bg-dark-800 text-slate-400 hover:text-white border border-slate-700'
+                  ? 'bg-gold-500 text-white border-gold-500 shadow-[0_0_20px_rgba(212,165,54,0.3)] scale-105' 
+                  : 'bg-transparent text-gold-400 border-gold-500/50 shadow-[0_0_15px_rgba(212,165,54,0.15)] animate-pulse hover:animate-none hover:bg-gold-500/10 hover:border-gold-400'
               }`}
             >
               {f.label}
@@ -114,21 +119,58 @@ const BeforeAfter: React.FC = () => {
           ))}
         </div>
 
-        {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        {/* Visual Cues for Carousel */}
+        <div className="flex justify-between items-center mb-4">
+            <div className="flex items-center gap-2 text-gold-500 animate-pulse md:hidden mx-auto">
+               <Hand size={16} className="rotate-90" />
+               <span className="text-xs font-bold uppercase tracking-widest">Arraste</span>
+            </div>
+            <div className="hidden md:flex gap-4 ml-auto">
+                <button onClick={() => scroll('left')} className="p-2 rounded-full border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white transition-all shadow-[0_0_15px_rgba(212,165,54,0.5)] animate-pulse hover:animate-none">
+                    <ChevronLeft size={24} />
+                </button>
+                <button onClick={() => scroll('right')} className="p-2 rounded-full border border-gold-500 text-gold-500 hover:bg-gold-500 hover:text-white transition-all shadow-[0_0_15px_rgba(212,165,54,0.5)] animate-pulse hover:animate-none">
+                    <ChevronRight size={24} />
+                </button>
+            </div>
+        </div>
+
+        {/* Carousel Grid */}
+        <div 
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-auto pb-8 no-scrollbar snap-x snap-mandatory -mx-6 px-6 md:mx-0 md:px-0"
+        >
           {filtered.map((item) => (
-            <div key={item.id} className="bg-dark-800 rounded-2xl overflow-hidden border border-slate-800 hover:border-teal-500/30 transition-all duration-500 group">
+            <div 
+              key={item.id} 
+              // Mobile: min-w-[90vw] (1 per screen)
+              // Desktop: min-w-[calc(50%-12px)] (2 per screen accounting for gap)
+              className="min-w-[90vw] md:min-w-[calc(50%-12px)] snap-center bg-dark-800 rounded-3xl overflow-hidden border border-slate-800 hover:border-gold-500/30 transition-all duration-500 group shadow-2xl flex flex-col"
+            >
               <CompareImage before={item.beforeImage} after={item.afterImage} />
-              <div className="p-8">
-                <Quote className="text-gold-500 mb-4 opacity-50" size={32} />
-                <p className="font-serif italic text-lg text-slate-200 mb-6">"{item.quote}"</p>
-                <div>
-                  <h4 className="font-bold text-white">{item.patientName}</h4>
-                  <p className="text-teal-400 text-sm">{item.procedure}</p>
+              <div className="p-6 relative flex-1">
+                <Quote className="text-gold-500 mb-2 opacity-30 absolute top-6 right-6" size={40} />
+                <p className="font-serif italic text-lg text-slate-200 mb-4 relative z-10 line-clamp-3">"{item.quote}"</p>
+                <div className="mt-auto">
+                  <h4 className="font-bold text-white text-base">{item.patientName}</h4>
+                  <p className="text-gold-400 text-xs font-bold uppercase tracking-wider">{item.procedure}</p>
                 </div>
               </div>
             </div>
           ))}
+          {/* Filler div to ensure last item is visible with padding */}
+          <div className="min-w-[1px] h-full"></div>
+        </div>
+
+        {/* CTA */}
+        <div className="mt-12 flex justify-center">
+            <Button 
+                variant="primary" 
+                icon={<MessageCircle size={18} />}
+                onClick={() => window.open('https://wa.me/5554991928750', '_blank')}
+            >
+                Quero ter esse resultado
+            </Button>
         </div>
       </div>
     </section>

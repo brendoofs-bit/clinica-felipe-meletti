@@ -1,5 +1,6 @@
 import React from 'react';
-import { MapPin } from 'lucide-react';
+import { MapPin, MessageCircle } from 'lucide-react';
+import Button from '../ui/Button';
 
 const Locations: React.FC = () => {
   const units = [
@@ -34,7 +35,7 @@ const Locations: React.FC = () => {
           <h2 className="font-serif text-4xl text-dark-900 mt-4">Encontre-nos em <span className="text-gold-500">Três Estados</span></h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
           {units.map((unit, idx) => (
             <div 
               key={idx}
@@ -62,6 +63,17 @@ const Locations: React.FC = () => {
                </div>
             </div>
           ))}
+        </div>
+
+        {/* CTA */}
+        <div className="text-center">
+             <Button 
+                variant="primary" 
+                icon={<MessageCircle size={18} />}
+                onClick={() => window.open('https://wa.me/5554991928750', '_blank')}
+            >
+                Agendar em uma unidade
+            </Button>
         </div>
       </div>
     </section>

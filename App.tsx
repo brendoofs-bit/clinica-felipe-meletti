@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import Header from './components/layout/Header';
 import Hero from './components/sections/Hero';
 import ImageLoop from './components/sections/ImageLoop';
-import TreatmentsGrid from './components/sections/TreatmentsGrid';
 import PremiumServices from './components/sections/PremiumServices';
 import BeforeAfter from './components/sections/BeforeAfter';
 import DoctorProfile from './components/sections/DoctorProfile';
 import ScientificImpact from './components/sections/ScientificImpact';
 import CaseStudies from './components/sections/CaseStudies';
+import InstitutionalVideo from './components/sections/InstitutionalVideo';
 import ClinicStructure from './components/sections/ClinicStructure';
 import Locations from './components/sections/Locations';
 import Footer from './components/layout/Footer';
@@ -38,11 +38,11 @@ function App() {
           <ImageLoop />
           <BeforeAfter />
           <PremiumServices />
-          <DoctorProfile />
           <ScientificImpact />
-          <TreatmentsGrid />
           <CaseStudies />
+          <InstitutionalVideo />
           <ClinicStructure />
+          <DoctorProfile />
           <Locations />
         </main>
         <Footer />
