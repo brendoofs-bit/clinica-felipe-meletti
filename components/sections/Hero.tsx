@@ -1,11 +1,102 @@
-import React from 'react';
+import React, { useRef, useEffect } from 'react';
 import Button from '../ui/Button';
 import { ArrowRight, Star } from 'lucide-react';
 import { IMAGES } from '../../constants';
 
+const MARQUEE_ITEMS = [
+  "Medicina Clínica", "Peeling Fenol Like", "Remodelação Glútea",
+  "Medicina Clínica", "Peeling Fenol Like", "Remodelação Glútea",
+  "Medicina Clínica", "Peeling Fenol Like", "Remodelação Glútea",
+  "Medicina Clínica", "Peeling Fenol Like", "Remodelação Glútea",
+  "Medicina Clínica", "Peeling Fenol Like", "Remodelação Glútea",
+  "Medicina Clínica", "Peeling Fenol Like", "Remodelação Glútea",
+];
+
+const GlobeMarquee: React.FC = () => {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const itemsRef = useRef<(HTMLDivElement | null)[]>([]);
+  const requestRef = useRef<number>();
+  const offsetRef = useRef(0);
+
+  useEffect(() => {
+    const animate = () => {
+      if (containerRef.current) {
+        const containerWidth = containerRef.current.offsetWidth;
+        const center = containerWidth / 2;
+        offsetRef.current += 0.5; // Speed
+        
+        const spacing = 150; // Reduced spacing for smaller text
+        const totalWidth = MARQUEE_ITEMS.length * spacing;
+        
+        itemsRef.current.forEach((item, index) => {
+          if (!item) return;
+          
+          // Calculate wrapped position
+          let x = (index * spacing - offsetRef.current) % totalWidth;
+          if (x < -spacing) x += totalWidth;
+          
+          // Center of the item
+          const itemCenter = x + spacing / 2;
+          
+          // Distance from center of container
+          const dist = Math.abs(center - itemCenter);
+          const maxDist = center; // Distance to edge
+          
+          // Normalize distance (0 = center, 1 = edge)
+          const normDist = Math.min(dist / maxDist, 1);
+          
+          // Effect logic:
+          // "próximo dos 30% das laterais" -> visible area is center 40% (0.3 to 0.7 of width)
+          // Threshold is 0.4 (distance from center)
+          
+          let scale = 1;
+          let opacity = 1;
+          
+          if (normDist > 0.4) {
+             const factor = (normDist - 0.4) / 0.6; // 0 to 1
+             
+             // Scale down significantly to simulate going back
+             scale = 1 - factor * 0.5; 
+             
+             // Fade out
+             opacity = 1 - factor;
+          }
+          
+          item.style.transform = `translateX(${x}px) scale(${scale})`;
+          item.style.opacity = opacity.toString();
+        });
+      }
+      requestRef.current = requestAnimationFrame(animate);
+    };
+    
+    requestRef.current = requestAnimationFrame(animate);
+    return () => {
+      if (requestRef.current) cancelAnimationFrame(requestRef.current);
+    };
+  }, []);
+
+  return (
+    <div ref={containerRef} className="relative w-full h-full overflow-hidden select-none pointer-events-none">
+      {MARQUEE_ITEMS.map((text, i) => (
+        <div
+          key={i}
+          ref={el => itemsRef.current[i] = el}
+          className="absolute top-0 h-full flex items-center justify-center w-[150px]"
+          style={{ left: 0, willChange: 'transform, opacity' }}
+        >
+           <span className="text-gold-500/80 font-serif italic text-[7px] mx-2 opacity-70">✦</span>
+           <span className="text-[7px] font-bold tracking-[0.3em] uppercase text-slate-300">
+             {text}
+           </span>
+        </div>
+      ))}
+    </div>
+  );
+};
+
 const Hero: React.FC = () => {
   return (
-    <section id="home" className="relative h-[600px] w-full overflow-hidden flex items-center justify-center bg-dark-900 group">
+    <section id="home" className="relative h-[800px] md:h-[600px] w-full overflow-hidden flex items-center justify-center bg-dark-900 group">
       {/* Background with Overlay */}
       <div className="absolute inset-0 z-0">
         {/* Desktop Image */}
@@ -54,33 +145,15 @@ const Hero: React.FC = () => {
       </div>
 
       {/* Luxury Marquee Separator - Globe Effect */}
-      <div className="absolute bottom-0 left-0 w-full h-8 bg-dark-900/95 backdrop-blur-md border-t border-gold-500/20 flex items-center justify-center overflow-hidden z-20">
+      <div className="absolute bottom-0 left-0 w-full h-6 bg-dark-900/95 backdrop-blur-md border-t border-gold-500/20 flex items-center justify-center overflow-hidden z-20">
          {/* Globe Lighting Effect (Center Highlight) */}
          <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,rgba(212,165,54,0.15)_0%,transparent_70%)] pointer-events-none z-0"></div>
          
-         {/* Scroller with Fade Mask (5% edges) */}
-         <div className="w-full h-full flex items-center [mask-image:linear-gradient(to_right,transparent_0%,black_5%,black_95%,transparent_100%)] z-10">
-             <div className="flex whitespace-nowrap animate-[scroll_25s_linear_infinite] w-max items-center">
-                {[1, 2, 3, 4, 5, 6].map((i) => (
-                   <React.Fragment key={i}>
-                     <span className="text-gold-500/80 font-serif italic text-[10px] mx-6 opacity-70">✦</span>
-                     <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-slate-300 mx-6 hover:text-white transition-colors">Medicina Clínica</span>
-                     <span className="text-gold-500/80 font-serif italic text-[10px] mx-6 opacity-70">✦</span>
-                     <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-slate-300 mx-6 hover:text-white transition-colors">Peeling Fenol Like</span>
-                     <span className="text-gold-500/80 font-serif italic text-[10px] mx-6 opacity-70">✦</span>
-                     <span className="text-[10px] font-bold tracking-[0.4em] uppercase text-slate-300 mx-6 hover:text-white transition-colors">Remodelação Glútea</span>
-                   </React.Fragment>
-                ))}
-             </div>
+         {/* Custom Globe Marquee */}
+         <div className="w-full h-full z-10">
+            <GlobeMarquee />
          </div>
       </div>
-      
-      <style>{`
-        @keyframes scroll {
-          0% { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
-        }
-      `}</style>
     </section>
   );
 };

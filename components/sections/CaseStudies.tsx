@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { CASE_STUDIES } from '../../constants';
 import { ArrowRight, X, Hand, MessageCircle } from 'lucide-react';
 import { CaseStudy } from '../../types';
@@ -6,6 +6,17 @@ import Button from '../ui/Button';
 
 const CaseStudies: React.FC = () => {
   const [selectedCase, setSelectedCase] = useState<CaseStudy | null>(null);
+
+  useEffect(() => {
+    if (selectedCase) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [selectedCase]);
 
   return (
     <section className="py-24 bg-cream overflow-hidden">
@@ -72,7 +83,7 @@ const CaseStudies: React.FC = () => {
              onClick={() => setSelectedCase(null)}
            ></div>
            
-           <div className="bg-white w-full max-w-[900px] max-h-[90vh] rounded-2xl shadow-2xl relative z-10 flex flex-col md:flex-row overflow-hidden animate-slide-up">
+           <div className="bg-white w-full max-w-[1000px] max-h-[90vh] rounded-2xl shadow-2xl relative z-10 flex flex-col md:flex-row overflow-hidden animate-slide-up">
               {/* Close Button */}
               <button 
                 onClick={() => setSelectedCase(null)}
@@ -82,12 +93,12 @@ const CaseStudies: React.FC = () => {
               </button>
 
               {/* Image Side */}
-              <div className="w-full md:w-[45%] h-[300px] md:h-auto relative">
+              <div className="w-full md:w-1/2 h-[300px] md:h-auto relative">
                 <img src={selectedCase.fullImage} alt={selectedCase.title} className="w-full h-full object-cover" />
               </div>
 
               {/* Content Side */}
-              <div className="w-full md:w-[55%] p-8 md:p-12 overflow-y-auto custom-scrollbar">
+              <div className="w-full md:w-1/2 p-8 md:p-12 overflow-y-auto custom-scrollbar">
                  <h2 className="font-serif text-3xl text-gold-600 mb-2">{selectedCase.title}</h2>
                  <p className="text-slate-400 text-sm uppercase tracking-wider mb-8">{selectedCase.technique}</p>
 
